@@ -31,3 +31,9 @@ Certifique-se de ter o Java instalado no seu sistema.
 ```powershell
 javac src/Card.java src/Deck.java src/Hand.java src/Blackjack.java; java -cp src Blackjack
 ```
+
+## Créditos
+
+*   **Imagens das Cartas:** Obtidas de [Vector Playing Cards](https://code.google.com/archive/p/vector-playing-cards/downloads).
+*   **Imagem do Verso da Carta:** Gerada pelo ChatGPT.
+
