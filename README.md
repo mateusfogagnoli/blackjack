@@ -1,0 +1,33 @@
+# Blackjack (Java Swing)
+
+A simple Blackjack game implemented in Java using Swing for the graphical user interface.
+
+## Rules
+
+*   **Objective:** Get a hand value closer to 21 than the opponent without exceeding 21.
+*   **Card Values:**
+    *   **Ace (A):** Worth 1 or 11 (whichever is better for the hand).
+    *   **Face Cards (J, Q, K):** Worth 10.
+    *   **Number Cards (2-10):** Worth their face value.
+*   **Gameplay:**
+    *   The player and the opponent are dealt two cards initially.
+    *   The player's cards are visible. The opponent has one card face up and one hidden.
+    *   **Hit:** Request another card to increase your score.
+    *   **Stand:** Keep your current hand and end your turn.
+    *   The opponent must hit until their score is 17 or higher.
+*   **Winning:**
+    *   If you exceed 21, you bust and lose.
+    *   If the opponent exceeds 21, they bust and you win.
+    *   If neither busts, the higher score wins.
+    *   A tie results in a "Push".
+
+## How to Run
+
+Ensure you have Java installed on your system.
+
+1.  Open a terminal (PowerShell recommended on Windows) in the project root folder.
+2.  Run the following command to compile and start the game:
+
+```powershell
+javac src/Card.java src/Deck.java src/Hand.java src/Blackjack.java; java -cp src Blackjack
+```
