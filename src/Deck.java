@@ -1,5 +1,4 @@
 import java.awt.Image;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,14 +22,14 @@ public class Deck {
             for (String rank : ranks) {
                 int value;
                 String filenameRank;
-                String filenameSuit = suit.toLowerCase();
+                String filenameSuit = suit.toLowerCase(java.util.Locale.ROOT);
                 String suffix = "";
                 if (rank.equals("Ace")) {
                     value = 11;
                     filenameRank = "ace";
                 } else if (rank.equals("Jack") || rank.equals("Queen") || rank.equals("King")) {
                     value = 10;
-                    filenameRank = rank.toLowerCase();
+                    filenameRank = rank.toLowerCase(java.util.Locale.ROOT);
                     suffix = "2"; // Face cards have '2' suffix in this specific deck
                 } else {
                     value = Integer.parseInt(rank);
@@ -38,11 +37,16 @@ public class Deck {
                 }
 
                 String filename = filenameRank + "_of_" + filenameSuit + suffix + ".png";
-                String path = "deck/" + filename;
+                String path = "/deck/" + filename;
                 
                 Image img = null;
                 try {
-                    img = ImageIO.read(new File(path));
+                    java.net.URL imgUrl = getClass().getResource(path);
+                    if (imgUrl != null) {
+                        img = ImageIO.read(imgUrl);
+                    } else {
+                        System.err.println("Image not found: " + path);
+                    }
                 } catch (IOException e) {
                     System.err.println("Error loading image: " + path);
                     e.printStackTrace();

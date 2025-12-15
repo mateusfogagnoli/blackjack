@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -35,7 +34,12 @@ public class Blackjack extends JFrame {
         opponentHand = new Hand();
 
         try {
-            backCardImage = ImageIO.read(new File("deck/back-deck.png"));
+            java.net.URL backCardUrl = getClass().getResource("/deck/back-deck.png");
+            if (backCardUrl != null) {
+                backCardImage = ImageIO.read(backCardUrl);
+            } else {
+                System.err.println("Back card image not found.");
+            }
         } catch (IOException e) {
             System.err.println("Error loading back card image.");
             e.printStackTrace();
